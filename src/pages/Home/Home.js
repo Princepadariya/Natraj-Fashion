@@ -46,18 +46,18 @@ const Home = () => {
         <div className="container">
           <h2 className="categories-title">Features That Matter</h2>
           <div className="category-grid">
-            <Link to="/products" className="category-card category-girls" style={{ backgroundImage: "url('/public/collection-1%201.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+            <div className="category-card category-girls" style={{ backgroundImage: "url('/public/collection-1%201.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
               <div className="category-inner">
                 <span className="category-title">Girls</span>
                 <span className="category-subtitle">Clothing</span>
               </div>
-            </Link>
-            <Link to="/products" className="category-card category-boys" style={{ backgroundImage: "url('/public/collection-3%201.png')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+            </div>
+            <div className="category-card category-boys" style={{ backgroundImage: "url('/public/collection-3%201.png')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
               <div className="category-inner">
                 <span className="category-title">Boys</span>
                 <span className="category-subtitle">Clothing</span>
               </div>
-            </Link>
+            </div>
           </div>
         </div>
       </section>
