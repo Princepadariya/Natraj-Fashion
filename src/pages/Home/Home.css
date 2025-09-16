@@ -664,7 +664,7 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 1rem 1rem 2rem 1rem; /* Increased top padding to prevent logo cut-off */
+    padding: 0.25rem 1rem 2rem 1rem; /* tighter top padding to reduce white space */
     margin-top: 0; /* Removed negative margin completely */
     gap: 1.5rem; /* Reduced gap for tighter layout */
     width: 100%;
@@ -677,7 +677,7 @@ body {
 
   .hero-content {
     padding-left: 0;
-    padding-top: 0.5rem; /* Increased padding to prevent logo cut-off */
+    padding-top: 0; /* remove extra space above */
     margin-top: 0; /* Removed negative margin completely */
     display: flex;
     flex-direction: column;
@@ -691,16 +691,13 @@ body {
   }
 
   .brand-logo {
-    margin-bottom: 20px; /* Reduced bottom margin for mobile */
-    margin-top: -0.5rem; /* Reduced top margin to decrease space above logo */
-    order: 1;
-    align-self: center;
-    position: relative; /* Ensure proper positioning */
-    z-index: 10; /* Ensure logo is above other elements */
-    width: 100%; /* Ensure full width */
-    display: flex; /* Ensure proper display */
-    justify-content: center; /* Center logo on mobile */
-    padding-top: 0; /* Removed additional padding */
+    position: absolute; /* Pin logo to very top on mobile */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 0;
+    z-index: 10;
   }
 
   .brand-logo-img {
@@ -722,6 +719,7 @@ body {
     max-width: 100%;
     padding: 0 1rem;
     order: 2;
+    margin-top: 90px; /* create space under fixed-top logo (approx 80px high) */
   }
 
   .main-headline {
@@ -772,12 +770,12 @@ body {
 
 @media (max-width: 480px) {
   .hero {
-    padding: 0.8rem 1rem 2rem 1rem; /* Increased top padding for small phones */
+    padding: 0 1rem 2rem 1rem; /* no top padding; logo pinned at top */
     margin-top: 0; /* Removed negative margin completely */
   }
   
   .hero-content {
-    padding-top: 0.3rem; /* Increased top padding for small phones */
+    padding-top: 0; /* remove extra space above */
     margin-top: 0; /* Removed negative margin completely */
   }
   
@@ -790,14 +788,13 @@ body {
   }
 
   .brand-logo {
-    margin-bottom: 15px; /* Further reduced margin for small phones */
-    margin-top: -0.8rem; /* Further reduced top margin for small phones */
-    position: relative; /* Ensure proper positioning */
-    z-index: 10; /* Ensure logo is above other elements */
-    width: 100%; /* Ensure full width */
-    display: flex; /* Ensure proper display */
-    justify-content: center; /* Center logo on small mobile */
-    padding-top: 0; /* Removed additional padding */
+    position: absolute; /* pin logo to very top for small phones */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 0;
+    z-index: 10;
   }
   
   .brand-logo-img {
@@ -808,6 +805,10 @@ body {
     max-width: 100%; /* Prevent overflow */
     opacity: 1; /* Ensure full opacity */
     visibility: visible; /* Ensure visibility */
+  }
+
+  .hero-text {
+    margin-top: 75px; /* create space under fixed-top logo */
   }
 
   .cta-button {
