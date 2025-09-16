@@ -42,9 +42,12 @@ body {
 
 /* BRAND (optional, kept minimal) */
 .brand-logo {
- 
-  margin-top: -60px;
+  position: absolute;
+  top:20px;
+  left: 50%;
+  transform: translateX(-50%);
 }
+
 
 .brand-logo-img {
   height: 120px;
@@ -691,12 +694,12 @@ body {
     margin-bottom: 20px; /* Reduced bottom margin for mobile */
     margin-top: -0.5rem; /* Reduced top margin to decrease space above logo */
     order: 1;
-    align-self: flex-start;
+    align-self: center;
     position: relative; /* Ensure proper positioning */
     z-index: 10; /* Ensure logo is above other elements */
     width: 100%; /* Ensure full width */
     display: flex; /* Ensure proper display */
-    justify-content: flex-start; /* Align logo to left */
+    justify-content: center; /* Center logo on mobile */
     padding-top: 0; /* Removed additional padding */
   }
 
@@ -793,7 +796,7 @@ body {
     z-index: 10; /* Ensure logo is above other elements */
     width: 100%; /* Ensure full width */
     display: flex; /* Ensure proper display */
-    justify-content: flex-start; /* Align logo to left */
+    justify-content: center; /* Center logo on small mobile */
     padding-top: 0; /* Removed additional padding */
   }
   
@@ -1031,6 +1034,16 @@ body {
   line-height: 1.4;
 }
 
+.footer-address-link {
+  text-decoration: none;
+}
+.footer-address-link p {
+  color: inherit;
+}
+.footer-address-link:hover p {
+  opacity: 0.85;
+}
+
 .footer-contact {
   margin-top: 1rem;
 }
@@ -1158,6 +1171,96 @@ body {
 .psc-submit:hover { background: #ff6a6a; }
 .psc-image-card { padding: 0; overflow: hidden; height: 680px; }
 .psc-image { width: 100%; height: 680px; object-fit: cover; display: block; }
+
+/* SUCCESS MODAL */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+  overflow: hidden;
+  animation: modal-pop 180ms ease-out;
+}
+
+@keyframes modal-pop {
+  0% { transform: translateY(6px) scale(0.98); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.modal-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1rem 0.5rem 1rem;
+}
+
+.modal-icon {
+  font-size: 1.6rem;
+}
+
+.modal-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1D3F5C;
+  margin: 0;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #64748B;
+}
+
+.modal-body {
+  padding: 0.5rem 1rem 1rem 1rem;
+  color: #334155;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 0 1rem 1rem 1rem;
+}
+
+.modal-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.modal-btn-primary {
+  background: #FF7C7C;
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(255, 124, 124, 0.28);
+}
+
+@media (max-width: 480px) {
+  .modal { max-width: 90%; }
+  .modal-title { font-size: 1.1rem; }
+  .modal-body { font-size: 0.95rem; }
+}
 @media (max-width: 1024px) { 
   .psc-container { padding-left: 0; padding-right: 0; margin-left: 0; margin-right: 0; max-width: 100%; }
   .psc-grid { grid-template-columns: 1fr; }

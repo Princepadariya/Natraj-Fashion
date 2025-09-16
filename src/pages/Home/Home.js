@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+
+  const handleVideoCallAppointmentSubmit = (event) => {
+    event.preventDefault();
+    setIsSuccessOpen(true);
+  };
+
+  const closeSuccessModal = () => setIsSuccessOpen(false);
 
   return (
     <div className="home">
@@ -305,7 +313,7 @@ const Home = () => {
             <div className="psc-card psc-form-card">
               <h3 className="psc-form-title">Send us a Message</h3>
               <p className="psc-form-subtext">Fill out the form below and our team will get back to you within 24 hours.</p>
-              <form className="psc-form" onSubmit={(e) => e.preventDefault()}>
+              <form className="psc-form" onSubmit={handleVideoCallAppointmentSubmit}>
                 <div className="psc-row">
                   <div className="psc-field">
                     <label className="psc-label">First Name*</label>
@@ -339,7 +347,7 @@ const Home = () => {
                     <input type="text" className="psc-input psc-input-full" placeholder="eg. +91 xxxxx xxxxx" aria-label="WhatsApp Number" />
                   </div>
                 </div>
-                <button type="submit" className="psc-submit">Book Appointment</button>
+                <button type="submit" className="psc-submit">Book Video-Call Appointment</button>
               </form>
             </div>
             <div className="psc-card psc-image-card">
@@ -348,6 +356,25 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Success Modal */}
+      {isSuccessOpen && (
+        <div className="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="booking-success-title" onClick={closeSuccessModal}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <div className="modal-icon">✅</div>
+              <h3 id="booking-success-title" className="modal-title">Appointment Booked</h3>
+              <button className="modal-close" aria-label="Close" onClick={closeSuccessModal}>×</button>
+            </div>
+            <div className="modal-body">
+              <p>You have successfully booked a video-call appointment. Our team will contact you shortly.</p>
+            </div>
+            <div className="modal-actions">
+              <button className="modal-btn modal-btn-primary" onClick={closeSuccessModal}>Great!</button>
+            </div>
+          </div>
+        </div>
+      )}
       
       {/* Footer Section */}
       <footer className="footer-section">
@@ -380,14 +407,21 @@ const Home = () => {
               <div className="footer-col">
                 <h4 className="footer-heading">LOCATION</h4>
                 <div className="footer-address">
-                  <p>Natraj Fashion, 7, New Empire</p>
-                  <p>University Road</p>
-                  <p>Indira Circle</p>
-                  <p>Rajkot</p>
+                    <a
+                    href="https://www.google.com/maps/search/?api=1&query=Natraj%20Fashion%2C%207%2C%20New%20Empire%2C%20University%20Road%2C%20Indira%20Circle%2C%20Rajkot"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-address-link"
+                  >
+                    <p>Natraj Fashion, 7, New Empire</p>
+                    <p>University Road</p>
+                    <p>Indira Circle</p>
+                    <p>Rajkot</p>
+                  </a>
                 </div>
                 <div className="footer-contact">
                   <h5 className="contact-heading">Contact No.</h5>
-                  <p className="contact-number">+91-8141334111</p>
+                  <a href="tel:+918141334111" className="contact-number">+91-8141334111</a>
                 </div>
               </div>
             </div>
