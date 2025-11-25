@@ -23,9 +23,9 @@ const Home = () => {
           
           <div className="hero-text">
             <h1 className="main-headline">
-              <span className="headline-line">Tiny Trends,</span>
-              <span className="headline-line">Crafted with Love</span>
-              <span className="headline-line">& Care</span>
+              <span className="headline-line">Because Every</span>
+              <span className="headline-line">Little One Deserves</span>
+              <span className="headline-line">the Very Best</span>
             </h1>
             <p className="hero-description">
               Sustainable, stylish, and oh-so-soft clothing for your little one's everyday adventures
