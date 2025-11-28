@@ -419,10 +419,6 @@ const Home = () => {
                     <p>Rajkot</p>
                   </a>
                 </div>
-                <div className="footer-contact">
-                  <h5 className="contact-heading">Contact No.</h5>
-                  <a href="tel:+918141334111" className="contact-number">+91-8141334111</a>
-                </div>
               </div>
             </div>
           </div>
@@ -431,7 +427,6 @@ const Home = () => {
           
           <div className="footer-bottom">
             <div className="footer-copyright">Copyright 2025 - Natraj Fashion All rights reserved</div>
-            <div className="footer-powered">Powered By <a href="https://codelix.in" target="_blank" rel="noopener noreferrer" className="footer-link">Codelix IT Solutions Pvt. Ltd.</a></div>
           </div>
         </div>
       </footer>
